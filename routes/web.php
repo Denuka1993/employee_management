@@ -1,7 +1,5 @@
 <?php
 
-
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,6 +16,15 @@ Route::get('/index', function () {
     return view('addEmployee');
 });
 
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
+Route::get('/EmployeeHome', function () {
+    return view('EmployeeHome');
+});
+
+Route::post('/saveEmployee', 'addEmployeeController@store');
 
 Auth::routes();
 

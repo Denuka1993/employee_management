@@ -1,11 +1,13 @@
-
 <!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -19,9 +21,21 @@
         box-sizing: border-box;
 
       }
-      body{
-        background-color: rgb(236, 236, 236);
-        
+
+      html,body{
+                background-color: rgb(236, 236, 236);
+                color: #0C090A;
+                font-family: 'Raleway', sans-serif;
+                height: 100vh;
+                margin: 0;
+                font-weight: 600;
+       }
+
+    
+      .form-row{
+        color: #000000;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
       }
       .row{
         background: rgb(250, 250, 250);
@@ -48,10 +62,62 @@
         border: 1px solid;
         color: black;
       }
+
+      .full-height {
+                height: 100vh;
+            }
+
+      .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+
+      .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+
+      .content {
+                text-align: center;
+            }
+
+      .title {
+                font-size: 84px;
+            }
+
+
+      .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+      h4{
+                font-weight:bold;
+              
+            }
+
     </style>
   </head>
   <body>
-    
+  <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @if (Auth::check())
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ url('/login') }}">Login</a>
+                        <a href="{{ url('/register') }}">Register</a>
+                    @endif
+                </div>
+            @endif
 
 
 
@@ -64,8 +130,8 @@
           </div>
            <!--this is for login form column-->
           <div class="col-lg-7 px-5 pt-5">
-            <h1 class="font-weight-bold py-3">Hello Employee!</h1>
-            <h4>Sign in to your account</h4>
+          <h1 style="font-weight:900" class="font-weight-bold py-3">Hello Employee!</h1>
+            <h4 style="color:#C0C0C0">Sign in to your account</h4>
             <form>
               <div class="form-row">
                 <div class="col-lg-7">

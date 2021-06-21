@@ -1,15 +1,16 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('EmployeeHome');
 });
 
 Route::get('/login', function () {
     
 });
 
-Route::get('/index', function () {
-    return view('index');
+
+Route::get('/AdminHome', function () {
+    return view('AdminHome');
  });
 
  Route::get('/addEmployee', function () {

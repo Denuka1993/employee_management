@@ -20,14 +20,15 @@
 <!--navbar begin--->
 <nav class="navbar navbar-expand-lg bg-white shadow fixed-top">
   <div class="container px-3">
-    <a class="navbar-brand" href="#">Home</a>
+    <a class="navbar-brand" href="#">Dashboard</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav m-auto">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">View Employees</a>
+          <a class="nav-link" aria-current="page" href="{{ url('/addEmployee') }}">Manage Employees</a>
+          
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Notificatons</a>
@@ -61,7 +62,7 @@
       <div class="col-lg-6 py-5">
         <h1 class="Heading pt-5 mt-5">Welcome to Tele Sri Lanaka (pvt)Ltd Work From Home Mode!</h1>
         <p class="p-head py-3">From here you can manage your taks and access all details of them. Have a great day ahead.</p>
-        <button class="btn1">Work Assigned</button>
+        <button class="btn1">Assign Works</button>
         <button class="btn2">Check Progress</button>
 
       </div>

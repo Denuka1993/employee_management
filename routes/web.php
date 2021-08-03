@@ -1,32 +1,35 @@
 <?php
 
-Route::get('/', function () {
-    return view('EmployeeHome');
-});
-
-Route::get('/login', function () {
-    
-});
-
-
-Route::get('/AdminHome', function () {
+    Route::get('/', function () {
     return view('AdminHome');
- });
+    });
 
- Route::get('/addEmployee', function () {
-    return view('addEmployee');
-});
+    Route::get('/login', function () {
+        
+    });
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
 
-Route::get('/EmployeeHome', function () {
-    return view('EmployeeHome');
-});
+    Route::get('/AdminHome', function () {
+        return view('AdminHome');
+    });
 
-Route::post('/saveEmployee', 'addEmployeeController@store');
+    Route::get('/addEmployee', function () {
+        return view('addEmployee');
+    });
 
-Auth::routes();
+    Route::get('/ViewEmployee', 'ViewEmployeeController@index')->name('ViewEmployee');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/EmployeeHome', function () {
+        return view('EmployeeHome');
+    });
+
+    
+
+    Route::post('/saveEmployee', 'addEmployeeController@store');
+    Route::post('/saveMessage', 'MessageController@store');
+
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
+    ?>

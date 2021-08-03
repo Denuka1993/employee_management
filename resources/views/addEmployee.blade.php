@@ -15,7 +15,7 @@
 
 
 
-    <title>Signup</title>
+    <title>Add Employee</title>
   </head>
   <body>
     
@@ -29,17 +29,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav m-auto">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{ url('/addEmployee') }}">Manage Employees</a>
-          
+          <a class="nav-link" aria-current="page" href="{{ url('/addEmployee') }}">Add Employees</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Notificatons</a>
+          <a class="nav-link" href="{{ url('/ViewEmployee') }}">View Employees</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Messages</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Employee Support</a>
+          <a class="nav-link" href="{{ url('/addNotfication') }}">Leave Details</a>
         </li>
       </ul>
 
@@ -56,6 +52,8 @@
 <!---navbar ends--->
 
 
+
+
 <!---main section start--->
 
 <section class="main py-1">
@@ -65,7 +63,7 @@
         <h1 class="font-weight-bold py-1" style="font-weight: bold">Hello Admin! </h1>
             <h4>Add New Employees</h4>
 
-           <form method="POST" action="/saveEmployee"> 
+           <form method="POST" action="/saveEmployee" enctype="multipart/form-data"> 
            {{ csrf_field() }}
 
 <!-----------//////////1////////-------->
@@ -165,14 +163,14 @@
               </div>
 
 <!---//////////////8///////////---->
-              <div class="form-row{{ $errors->has('Photo') ? ' has-error' : '' }}">
+              <div class="form-row{{ $errors->has('image') ? ' has-error' : '' }}">
                 <div class="col-lg-9">
-                  <input id="Photo" type="file" name="Photo" class="form-control my-3 p-3" value="{{ old('Photo') }}" required>
+                  <input id="Photo" type="file" name="image" class="form-control my-3 p-3" value="{{ old('image') }}" required>
                  
 
-                  @if ($errors->has('Photo'))
+                  @if ($errors->has('image'))
                      <span class="help-block">
-                        <strong>{{ $errors->first('Photo') }}</strong>
+                        <strong>{{ $errors->first('image') }}</strong>
                       </span>
                   @endif
                 </div>

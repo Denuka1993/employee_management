@@ -13,31 +13,27 @@
 
 
 
-    <title>Home</title>
+    <title>Admin Home</title>
   </head>
   <body>
     
 <!--navbar begin--->
 <nav class="navbar navbar-expand-lg bg-white shadow fixed-top">
   <div class="container px-3">
-    <a class="navbar-brand" href="#">Dashboard</a>
+    <a class="navbar-brand" href="{{ url('/AdminHome') }}">Dashboard</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav m-auto">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{ url('/addEmployee') }}">Manage Employees</a>
-          
+      <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{ url('/addEmployee') }}">Add Employees</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Notificatons</a>
+          <a class="nav-link" href="{{ url('/ViewEmployee') }}">View Employees</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Messages</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Employee Support</a>
+          <a class="nav-link" href="{{ url('/addNotfication') }}">Leave Details</a>
         </li>
       </ul>
 

@@ -17,7 +17,17 @@ class addEmployeeController extends Controller
      $employee->Designation=$request->Designation;
      $employee->Contact_No=$request->Contact_Number;
      $employee->Email=$request->email;
-     $employee->image=$request->Photo;
+    if($request->hasfile('image')){
+            $file=$request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('uploads/',$filename);
+            $employee->image=$filename;
+      
+    }
+ $employee->Email=$request->input('Null');
+   
+    
      $employee->save();
      return redirect()->back();
   }

@@ -13,7 +13,7 @@
 
 
 
-    <title>Home</title>
+    <title>Employee Home</title>
   </head>
   <body>
     
@@ -26,17 +26,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav m-auto">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">View Employees</a>
+      <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{ url('/addEmployee') }}">Add Employees</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Notificatons</a>
+          <a class="nav-link" href="{{ url('/ViewEmployee') }}">View Employees</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Messages</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Employee Support</a>
+          <a class="nav-link" href="{{ url('/addNotfication') }}">Leave Details</a>
         </li>
       </ul>
 

@@ -1,53 +1,7 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-    <link rel="stylesheet" href="/css/style.css">
+@section('content')
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
-    <title>Admin Home</title>
-  </head>
-  <body>
-    
-<!--navbar begin--->
-<nav class="navbar navbar-expand-lg bg-white shadow fixed-top">
-  <div class="container px-3">
-    <a class="navbar-brand" href="{{ url('/AdminHome') }}">Dashboard</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav m-auto">
-      <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{{ url('/addEmployee') }}">Add Employees</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('/ViewEmployee') }}">View Employees</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('/addNotfication') }}">Leave Details</a>
-        </li>
-      </ul>
-
-      <ul class="navbar-nav">
-      
-        <button class="Download">Logout</button>
-      </ul>
-
-    </div>
-  </div>
-</nav>
-
-
-<!---navbar ends--->
 
 
 <!---main section start--->
@@ -58,9 +12,23 @@
       <div class="col-lg-6 py-5">
         <h1 class="Heading pt-5 mt-5">Welcome to Tele Sri Lanaka (pvt)Ltd Work From Home Mode!</h1>
         <p class="p-head py-3">From here you can manage your taks and access all details of them. Have a great day ahead.</p>
-        <button class="btn1">Assign Works</button>
-        <button class="btn2">Check Progress</button>
+        
+        <button id="myButton" class="btn1" >Assign Works</button>
+        <script type="text/javascript">
+          document.getElementById("myButton").onclick = function () {
+        location.href = "{{ url('/AssignTask') }}";
+         };
+      </script>
 
+      <button id="Button1" class="btn2" >Check Progress</button>
+        <script type="text/javascript">
+          document.getElementById("Button1").onclick = function () {
+        location.href = "{{ url('/CheckProgress') }}";
+         };
+      </script>
+
+        
+       
       </div>
       <div class="col-lg-6">
         <img src="images/home.jpg" class="img-fluid" alt="">
@@ -96,7 +64,7 @@
         <h3 class="pb-3">Social Media</h3>
         <span><a href="#"><i class="fa fa-phone"></i></a></span>
         <span><a href="#"><i class="fa fa-instagram"></i></a></span>
-        <span><a href="#"><i class="fa fa-google-plus"></i></a></span
+        <span><a href="#"><i class="fa fa-google-plus"></i></a></span>
         <span><a href="#"><i class="fa fa-facebook"></i></a></span>
       </div>
     </div>

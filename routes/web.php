@@ -1,35 +1,75 @@
 <?php
 
-    Route::get('/', function () {
+use App\Http\controllers\ViewEmployeeController;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('auth.login');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::group(['middleware' => ['auth','admin']], function(){
+//    Route::get('/dashboard', function () {
+//        return view('adminHome');
+ //   });
+//});
+
+Route::get('/EmployeeHome', function(){
+    return view('EmployeeHome');
+});
+
+Route::get('/logout', function(){
+    return view('login');
+});
+Route::get('/AdminHome', function(){
     return view('AdminHome');
-    });
+});
 
-    Route::get('/login', function () {
-        
-    });
+Route::get('/AssignTask', function () {
+    return view('AssignTask');
+});
 
+Route::get('/ApplyLeave', function () {
+    return view('ApplyLeave');
+});
 
-    Route::get('/AdminHome', function () {
-        return view('AdminHome');
-    });
+Route::get('/Rate', function () {
+    return view('Rate');
+});
+Route::post('/rate','RateController@ratehere');
 
-    Route::get('/addEmployee', function () {
-        return view('addEmployee');
-    });
+Route::get('/LeaveDetails', function () {
+    return view('LeaveDetails');
+});
+Route::get('/LeaveDetails','LeaveController@leaveview');
+Route::get('/Approve/{LeaveFormID}','LeaveController@ApproveStatus');
+Route::get('/Decline/{LeaveFormID}','LeaveController@DeclineStatus');
 
-    Route::get('/ViewEmployee', 'ViewEmployeeController@index')->name('ViewEmployee');
+Route::get('/LeaveStatus','LeaveController@EmpStatus');
 
+Route::post('/applyleave','LeaveController@apply');
+Route::get('/InProgress/{TaskID}','taskController@progress');
+Route::get('/CheckProgress','taskController@Adminstatus');
+Route::get('/Completed/{TaskID}','taskController@complete');
+Route::get('/WorkAssigned','taskController@Employeestatus')->name('WorkAssigned');
+Route::get('/ViewEmployee','ViewEmployeeController@index')->name('ViewEmployee');
+Route::get('/edit-employee/{Employee_ID}','ViewEmployeeController@edit');
+Route::put('/update-employee/{Employee_ID}','ViewEmployeeController@update')->name('editEmployee');
+Route::get('/delete-employee/{Employee_ID}','ViewEmployeeController@delete');
+Route::get('/ViewEmployee','ViewEmployeeController@index');
+//Route::get('/taskview','taskController@taskview');
+Route::get('/ViewRate','RateController@RateView')->name('AssignTask');
 
-    Route::get('/EmployeeHome', function () {
-        return view('EmployeeHome');
-    });
-
-    
-
-    Route::post('/saveEmployee', 'addEmployeeController@store');
-    Route::post('/saveMessage', 'MessageController@store');
-
-    Auth::routes();
-
-    Route::get('/home', 'HomeController@index')->name('home');
-    ?>
+//Route::get('/leaveview','LeaveController@leaveview');

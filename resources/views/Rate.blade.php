@@ -13,7 +13,7 @@
 
 
 
-    <title>Employee Home</title>
+    <title>Rate</title>
   </head>
   <body>
     
@@ -45,36 +45,78 @@
 </nav>
 
 
+
 <!---navbar ends--->
+
 
 
 <!---main section start--->
 
 <section class="main py-3">
   <div class="container pt-5">
-    <div class="row">
+    <div class="row" style="background: white, border-radius: 30px">
       <div class="col-lg-6 py-5">
-        <h1 class="Heading pt-5 mt-5">Welcome to Tele Sri Lanaka (pvt)Ltd Work From Home Mode!</h1>
-        <p class="p-head py-3">From here you can manage your taks and access all details of them. Have a great day ahead.</p>
-        
-        <button id="myButton1" class="btn1" >Work Assigned</button>
-        <script type="text/javascript">
-          document.getElementById("myButton1").onclick = function () {
-        location.href = "{{ url('/WorkAssigned') }}";
-         };
-      </script>
+        <h1 class="font-weight-bold py-3" style="font-weight: bold">Rate Your Experience </h1>
+          <!---  <h4>Sign in to your account</h4>--->
+          @if (session('status'))
+            <h6 class="alert alert-success">{{ session('status') }}</h6>
+          @endif
+          <form action="/rate" method="POST" enctype="multipart/form-data">
+          {{csrf_field()}}
+    
+            
+              <div class="form-row{{ $errors->has('date') ? ' has-error' : '' }}">
+                <div class="col-lg-9">
+                  <input type="date" name="date" placeholder="Leave Request Date" class="form-control my-3 p-3" required autofocus>
+                </div>
+              </div>
 
-<button id="myButton" class="btn1" >Rate Your Experience</button>
-        <script type="text/javascript">
-          document.getElementById("myButton").onclick = function () {
-        location.href = "{{ url('/Rate') }}";
-         };
-      </script>
+              <div class="form-row{{ $errors->has('empName') ? ' has-error' : '' }}">
+                <div class="col-lg-9">
+                  <input type="empName" name="empName" placeholder="Employee Name" class="form-control my-3 p-3" required autofocus>
+                </div>
+              </div>
 
-      
+              <div class="form-group{{ $errors->has('Rating') ? ' has-error' : '' }}">
+              <label for="Gender" class="col-md-4 control-label"><h5>Rating</h5></label>
+                <div class="col-md-6">
+                
+                  <input id="Rating" type="radio"  name="Rating" value="Excellent"><label for="Excellent">Excellent</label><br>
+                  <input id="Rating" type="radio"  name="Rating" value="Very Good" ><label for="Very Good">Very Good</label><br>
+                  <input id="Rating" type="radio"  name="Rating" value="Good" ><label for="Good">Good</label><br>
+                  <input id="Rating" type="radio"  name="Rating" value="Average" ><label for="Average">Average</label><br>
+                  <input id="Rating" type="radio"  name="Rating" value="Poor" ><label for="Poor">Poor</label><br>
+
+                    @if ($errors->has('Rating'))
+                      <span class="help-block">
+                         <strong>{{ $errors->first('Rating') }}</strong>
+                      </span>
+                    @endif
+
+                </div>
+              </div>
+              
+              
+              <div class="form-row{{ $errors->has('experience') ? ' has-error' : '' }}">
+                <div class="col-lg-9">
+                  <input type="text" name="experience" placeholder="Experience" class="form-control my-3 p-3" required autofocus>
+                </div>
+              </div>
+
+             
+              
+
+              <div class="form-row">
+                <div class="col-lg-9">
+                  <button type="submit" value="Apply" class="btn1 mt-3 mb-5">Rate Here</button>
+                </div>
+              </div>
+              
+            </form>
       </div>
-      <div class="col-lg-6">
-        <img src="images/home.jpg" class="img-fluid" alt="">
+      <div class="col-lg-6 pt-5">
+        <img src="images/leave.png" class="img-fluid" style="border-top-left-radius: 30px,
+        border-bottom-left-radius: 30px" alt="">
       </div>
     </div>
   </div>
@@ -88,11 +130,11 @@
     <div class="row">
       <div class="col-lg-3">
         <h3 class="pb-3">About</h3>
-        <p class="para">Accordingly within given time frame and access all details of them. </p>
+        <p class="para">ccordingly within given time frame and access all details of them. </p>
       </div>
       <div class="col-lg-3">
         <h3 class="pb-3">Work</h3>
-        <p class="para">Accordingly within given timgly within given time frame and access all details of them. </p>
+        <p class="para">ccordin gly within given timgly within given time frame and access all details of them. </p>
 
       </div>
       <div class="col-lg-3">
@@ -107,7 +149,7 @@
         <h3 class="pb-3">Social Media</h3>
         <span><a href="#"><i class="fa fa-phone"></i></a></span>
         <span><a href="#"><i class="fa fa-instagram"></i></a></span>
-        <span><a href="#"><i class="fa fa-google-plus"></i></a></span
+        <span><a href="#"><i class="fa fa-google-plus"></i></a></span>
         <span><a href="#"><i class="fa fa-facebook"></i></a></span>
       </div>
     </div>

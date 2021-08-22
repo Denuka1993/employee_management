@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Employee</title>
+    <title>Work Assigned</title>
 
     <link rel="stylesheet" href="/css/style.css">
 
@@ -102,11 +102,12 @@
 </head>
 <body>
 
+<!--navbar begin--->
 @extends('layouts.app')
 
 @section('content')
 
-
+<!---navbar ends--->
 
 
             <section class="main py-3">
@@ -116,39 +117,26 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Gender</th> 
-                    <th>Designation</th>
-                    <th>Contact No.</th>
-                    <th>Email</th>
-                    <th>Image</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Task ID </th>
+                    <th>Task </th>
+                    <th>Description</th>
+                    <th>Image</th> 
+                    <th>Status</th>
+                    
+                    
                 </tr>
             </thead>
 
             <tbody>
-            @foreach ($User as $E)
+            @foreach ($tasks as $E)
             <tr>
-                    <td>{{$E->Employee_ID}}</td>
-                    <td>{{$E->FirstName}} {{$E->LastName}}</td>
-                    <td>{{$E->Gender}}</td>
-                    <td>{{$E->Designation}}</td>
-                    <td>{{$E->ContactNumber}}</td>
-                    <td>{{$E->Email}}</td>
+                    <td>{{$E->TaskID}}</td>
+                    <td>{{$E->TaskName}}</td>
+                    <td>{{$E->Description}}</td>
+                    
                     <td><img src="uploads/{{$E->Image}}" alt=""></td>
-                    <td>
-                        <span class="action_btn">
-                            <a href="/edit-employee/{{$E->Employee_ID}}">Edit</a>
-                        </span>
-                    </td>
-                    <td>
-                        <span class="action_btn">
-                            
-                        <a href="/delete/{{$E->Employee_ID}}">Delete </a>
-                        </span>
-                    </td>
+                    <td>{{$E->Status}}</td>
+                    
                 </tr>
                 @endforeach
             </tbody>

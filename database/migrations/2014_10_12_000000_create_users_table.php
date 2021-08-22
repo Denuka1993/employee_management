@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -13,11 +14,16 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('users');
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
+            //$table->increments('Employee_ID');
+            $table->string('Employee_ID');
+            $table->string('FirstName');
+            $table->string('LastName');
+            $table->string('Gender');
+            $table->string('Designation');
+            $table->string('ContactNumber');
+            $table->string('Email')->unique();
+            $table->string('Image');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

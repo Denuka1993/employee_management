@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Employee</title>
+    <title>Work Assigned</title>
 
     <link rel="stylesheet" href="/css/style.css">
 
@@ -102,10 +102,34 @@
 </head>
 <body>
 
-@extends('layouts.app')
+<nav class="navbar navbar-expand-lg bg-white shadow fixed-top">
+  <div class="container px-3">
+    <a class="navbar-brand" href="{{ url('/EmployeeHome') }}">Home</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav m-auto">
+      <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{{ url('/ApplyLeave') }}">Apply Leave</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('/LeaveStatus') }}">Leave Details</a>
+        </li>
+      </ul>
 
-@section('content')
+      <ul class="navbar-nav">
+      
+        <button class="Download">Logout</button>
+      </ul>
 
+    </div>
+  </div>
+</nav>
+
+
+<!---navbar ends--->
 
 
 
@@ -116,39 +140,39 @@
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Gender</th> 
-                    <th>Designation</th>
-                    <th>Contact No.</th>
-                    <th>Email</th>
-                    <th>Image</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Task ID </th>
+                    <th>Task </th>
+                    <th>Description</th>
+                    <th>Image</th> 
+                    <th>Status</th>
+                    <th>In Progress</th>
+                    <th>Completed</th>
+                    <th>Rate</th>
+                    
                 </tr>
             </thead>
 
             <tbody>
-            @foreach ($User as $E)
+            @foreach ($tasks as $E)
             <tr>
-                    <td>{{$E->Employee_ID}}</td>
-                    <td>{{$E->FirstName}} {{$E->LastName}}</td>
-                    <td>{{$E->Gender}}</td>
-                    <td>{{$E->Designation}}</td>
-                    <td>{{$E->ContactNumber}}</td>
-                    <td>{{$E->Email}}</td>
+                    <td>{{$E->TaskID}}</td>
+                    <td>{{$E->TaskName}}</td>
+                    <td>{{$E->Description}}</td>
+                    
                     <td><img src="uploads/{{$E->Image}}" alt=""></td>
+                    <td>{{$E->Status}}</td>
                     <td>
                         <span class="action_btn">
-                            <a href="/edit-employee/{{$E->Employee_ID}}">Edit</a>
+                            <a href="/InProgress/{{$E->TaskID}}">In Progress</a>
                         </span>
                     </td>
                     <td>
                         <span class="action_btn">
                             
-                        <a href="/delete/{{$E->Employee_ID}}">Delete </a>
+                        <a href="/Completed/{{$E->TaskID}}">Completed</a>
                         </span>
                     </td>
+                    
                 </tr>
                 @endforeach
             </tbody>

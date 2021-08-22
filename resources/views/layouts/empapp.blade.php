@@ -41,7 +41,7 @@
       
 
       
-        
+    
         @if (Auth::guest())
         <li class="nav-item">
           <a class="nav-link" href="{{ url('/login') }}">Login</a>
@@ -51,36 +51,18 @@
         </li>
 
         @else
-
         <nav class="navbar navbar-expand-lg bg-white shadow fixed-top">
-  <div class="container px-3">
-  @if (Auth::user()->Designation=='Admin')
-  <a class="navbar-brand" href="{{ url('/AdminHome') }}">Dashboard</a> 
-  @else
-  <a class="navbar-brand" href="{{ url('/EmployeeHome') }}">Home</a>
-  @endif
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="container px-3">
+        <a class="navbar-brand" href="{{ url('/AdminHome') }}">Dashboard</a> 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarNav">
 
-   
     
-
-      <ul class="navbar-nav m-auto">
-
-
-
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('/ViewEmployee') }}">View Employees</a>
+          <a class="nav-link" href="{{ url('/LeaveDetails') }}">Apply Leave</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('/LeaveDetails') }}">Leave Details</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('/ViewRate') }}">View Ratings</a>
-        </li>
-        
 
         <li class="nav-item">
           <a class="nav-link" href="{{ route('logout') }}"
@@ -88,11 +70,12 @@
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
+                                        </li>
+        <li class="nav-item">
+          <a class="nav-link" >   Hello {{ Auth::user()->FirstName }} !</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('/register') }}">   Hello {{ Auth::user()->FirstName }} !</a>
-        </li>
+        
 
         
                                

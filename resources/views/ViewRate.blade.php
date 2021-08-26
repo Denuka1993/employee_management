@@ -174,45 +174,8 @@
 <!---main section ends---->
 
 <!---footer---->
-
-<footer>
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-lg-3">
-        <h3 class="pb-3">About</h3>
-        <p class="para">ccordingly within given time frame and access all details of them. </p>
-      </div>
-      <div class="col-lg-3">
-        <h3 class="pb-3">Work</h3>
-        <p class="para">ccordin gly within given timgly within given time frame and access all details of them. </p>
-
-      </div>
-      <div class="col-lg-3">
-        <h3 class="pb-3">Contact</h3>
-        <p class="para">ccordingly within given<br>
-           time frame and access all<br>
-           details of them. <br>
-           details of them. </p>
-
-      </div>
-      <div class="col-lg-3">
-        <h3 class="pb-3">Social Media</h3>
-        <span><a href="#"><i class="fa fa-phone"></i></a></span>
-        <span><a href="#"><i class="fa fa-instagram"></i></a></span>
-        <span><a href="#"><i class="fa fa-google-plus"></i></a></span>
-        <span><a href="#"><i class="fa fa-facebook"></i></a></span>
-      </div>
-    </div>
-    <hr>x
-    <p class="text-center pt-3"> © 2021 IIT. All Rights Reserved.</p>
-  </div>
-</footer>
+@extends('layouts.footer')
 <!---footer ends---->
-
-
-
-
-
 
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

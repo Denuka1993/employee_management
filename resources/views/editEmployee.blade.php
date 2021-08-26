@@ -14,13 +14,14 @@
 
 
 
-<!-----------//////////1////////
+
+<br><br>
 
               <div class="form-group{{ $errors->has('Employee_ID') ? ' has-error' : '' }}">
               <label for="Employee_ID" class="col-md-4 control-label">Employee_ID</label>
 
                 <div class="col-md-6">
-                  <input id="Employee_ID" type="Employee_ID" name="Employee_ID" value="{{$User->Employee_ID}}" placeholder="Employee ID" class="form-control my-3 p-3" value="{{ old('Employee_ID') }}" required autofocus>
+                  <input id="Employee_ID" type="Employee_ID" name="Employee_ID" value="{{$User->Employee_ID}}" placeholder="Employee ID" class="form-control my-3 p-3" value="{{ old('Employee_ID') }}" disabled required autofocus>
                   
                     @if ($errors->has('Employee_ID'))
                         <span class="help-block">
@@ -33,7 +34,7 @@
 
 
 <!------////////////-2-//////-------->
-<br><br>
+
               <div class="form-group{{ $errors->has('First_Name') ? ' has-error' : '' }}">
               <label for="First_Name" class="col-md-4 control-label">First_Name</label>
 
@@ -152,4 +153,19 @@
         </div>
     </div>
 </div>
-@endsection
+</section>
+    
+
+<!---footer---->
+@extends('layouts.footer')
+<!---footer ends---->
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+   
+    
+</body>
+</html>

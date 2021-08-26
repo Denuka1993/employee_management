@@ -1,6 +1,6 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
   <head>
+  <script src="//code-eu1.jivosite.com/widget/8vrhRARszD" async></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,13 +72,23 @@
 
 
         <li class="nav-item">
+        @if (Auth::user()->Designation=='Admin')
           <a class="nav-link" href="{{ url('/ViewEmployee') }}">View Employees</a>
+          @else
+          <a class="nav-link" aria-current="page" href="{{ url('/ApplyLeave') }}">Apply Leave</a>
+          @endif
         </li>
         <li class="nav-item">
+        @if (Auth::user()->Designation=='Admin')
           <a class="nav-link" href="{{ url('/LeaveDetails') }}">Leave Details</a>
+          @else
+          <a class="nav-link" href="{{ url('/LeaveStatus') }}">Leave Details</a>
+          @endif
         </li>
         <li class="nav-item">
+           @if (Auth::user()->Designation=='Admin')
           <a class="nav-link" href="{{ url('/ViewRate') }}">View Ratings</a>
+          @endif
         </li>
         
 
@@ -91,11 +101,10 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('/register') }}">   Hello {{ Auth::user()->FirstName }} !</a>
+          <a class="nav-link" >   Hello {{ Auth::user()->FirstName }} !</a>
         </li>
 
-        
-                               
+                       
                           
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

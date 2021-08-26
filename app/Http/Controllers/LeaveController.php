@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\leave;
+use App\User;
 class LeaveController extends Controller
 {
     public function apply(Request $request){
-
+        $todayDate = date('m/d/Y');
+      
+        
         $leave = new leave;
         
         $this->validate($request,[
             'empName' => 'required|max:100',
-            'reason' => 'required|max:100',
+            'reason' => 'required|max:200',
+            'date' => 'required|after:'.$todayDate ,
         ]);
 
         $leave->FirstName=$request->input('empName');

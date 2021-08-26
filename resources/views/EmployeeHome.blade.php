@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <script src="//code-eu1.jivosite.com/widget/8vrhRARszD" async></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

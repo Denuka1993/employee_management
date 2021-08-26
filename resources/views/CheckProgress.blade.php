@@ -121,6 +121,7 @@
                     <th>Task </th>
                     <th>Description</th>
                     <th>Image</th> 
+                    <th>Assign To</th> 
                     <th>Status</th>
                     
                     
@@ -135,6 +136,7 @@
                     <td>{{$E->Description}}</td>
                     
                     <td><img src="uploads/{{$E->Image}}" alt=""></td>
+                    <td>{{$E->AssignTo}}</td>
                     <td>{{$E->Status}}</td>
                     
                 </tr>

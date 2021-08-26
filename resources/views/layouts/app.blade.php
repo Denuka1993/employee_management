@@ -1,6 +1,6 @@
 <!doctype html>
   <head>
-  <script src="//code-eu1.jivosite.com/widget/8vrhRARszD" async></script>
+  
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -101,7 +101,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" >   Hello {{ Auth::user()->FirstName }} !</a>
+          <a class="nav-link"  >   Hello {{ Auth::user()->FirstName }} !</a>
         </li>
 
                        

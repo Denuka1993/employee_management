@@ -14,18 +14,7 @@
             <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-<!-----------//////////1////////-------->
 
-              <div class="form-group{{ $errors->has('Employee_ID') ? ' has-error' : '' }}">
-                <div class="col-lg-9">
-                <input id="Employee_ID" placeholder="Employee ID" type="Employee_ID" class="form-control my-3 p-3" name="Employee_ID" value="{{ old('Employee_ID') }}" required autofocus>
-                  @if ($errors->has('Employee_ID'))
-                                      <span class="help-block">
-                                        <strong>{{ $errors->first('Employee_ID') }}</strong>
-                                      </span>
-                                  @endif  
-              </div>
-              </div>
 
  <!-----------//////////2////////-------->
 

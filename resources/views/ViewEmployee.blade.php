@@ -112,6 +112,9 @@
             <section class="main py-3">
             <div class="container pt-5">
             <div class="row">
+            @if (session('status'))
+            <h6 class="alert alert-success">{{ session('status') }}</h6>
+          @endif
     <div class="table_responsive">
         <table>
             <thead>

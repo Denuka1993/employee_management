@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 class RateController extends Controller
 {
     public function ratehere(Request $request){
-
+        $todayDate = date('m/d/Y');
         $rate = new rate;
         
         $this->validate($request,[
             'empName' => 'required|max:100',
-            'Rating' => 'required|max:100',
-            'experience' => 'required|max:100',
+            'Rating' => 'required',
+            'experience' => 'required',
+            'date' => 'required|after_or_equal:'.$todayDate ,
         ]);
 
         

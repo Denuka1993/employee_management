@@ -131,8 +131,11 @@
             </thead>
 
             <tbody>
+                
             @foreach ($tasks as $E)
-            <tr>           
+           
+            
+            <tr>         
                     <td>{{$E->TaskID}}</td>
                     <td>{{$E->TaskName}}</td>
                     <td>{{$E->Description}}</td>

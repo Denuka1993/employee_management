@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('/EmployeeHome', function(){
     return view('EmployeeHome');
@@ -60,6 +60,7 @@ Route::get('/InProgress/{TaskID}','taskController@progress');
 Route::get('/CheckProgress','taskController@Adminstatus');
 Route::get('/Completed/{TaskID}','taskController@complete');
 Route::get('/WorkAssigned','taskController@Employeestatus')->name('WorkAssigned');
+Route::post('/addtask','taskController@store');
 
 Route::get('/ViewEmployee','ViewEmployeeController@index')->name('ViewEmployee');
 Route::get('/edit-employee/{Employee_ID}','ViewEmployeeController@edit');

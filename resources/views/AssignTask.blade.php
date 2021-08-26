@@ -41,35 +41,42 @@
 
           <form action="/addtask" method="POST" enctype="multipart/form-data">
              {{csrf_field()}}
-    
- <!----class="form-row{{ $errors->has('assignby') ? ' has-error' : '' }}">
-                <div class="col-lg-9">
-                  <input type="text" name="assignby" placeholder="Assign by" class="form-control my-3 p-3" required autofocus>
-                </div>
-              </div>--->
 
               <div class="form-row{{ $errors->has('name') ? ' has-error' : '' }}">
                 <div class="col-lg-9">
                   <input type="text" name="name" placeholder="Task Name" class="form-control my-3 p-3" required autofocus>
+                  @if ($errors->has('name'))
+                                      <span class="help-block">
+                                          <strong>{{ $errors->first('name') }}</strong>
+                                      </span>
+                                  @endif  
                 </div>
               </div>
 
               <div class="form-row{{ $errors->has('description') ? ' has-error' : '' }}">
                 <div class="col-lg-9">
                   <input type="text" name="description" placeholder="Description" class="form-control my-3 p-3"required autofocus>
+                  @if ($errors->has('description'))
+                                      <span class="help-block">
+                                          <strong>{{ $errors->first('description') }}</strong>
+                                      </span>
+                                  @endif  
+                
                 </div>
               </div>
 
+              
+
              <div class="form-row{{ $errors->has('assign') ? ' has-error' : '' }}">
                  <div class="col-lg-9">
-                     <!---<h6 class="font-weight-bold py-3" style="font-weight: bold">Assign to </h6>--->
+                     
 
                  <select name="assign" class="form-select" aria-label="Default select example" required autofocus>
                     <option selected>Assign To</option>
                     <option value="Denuka">Denuka</option>
                     <option value="Janith">Janith</option>
                     <option value="Amali">Amali</option> 
-                    <option value="Banuka">Banuka</option> 
+                    <option value="Banuka">Mahesh</option> 
                     <option value="Sasa">Sasa</option> 
               
                  </select>

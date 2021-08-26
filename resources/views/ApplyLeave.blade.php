@@ -45,16 +45,32 @@
               <div class="form-row{{ $errors->has('empName') ? ' has-error' : '' }}">
                 <div class="col-lg-9">
                   <input type="text" name="empName" placeholder="Employee Name" class="form-control my-3 p-3" required autofocus>
+                  @if ($errors->has('empName'))
+                                      <span class="help-block">
+                                          <strong>{{ $errors->first('empName') }}</strong>
+                                      </span>
+                                  @endif  
                 </div>
+
               </div>
               <div class="form-row{{ $errors->has('date') ? ' has-error' : '' }}">
                 <div class="col-lg-9">
                   <input type="date" name="date" placeholder="Leave Request Date" class="form-control my-3 p-3" required autofocus>
+                  @if ($errors->has('date'))
+                                      <span class="help-block">
+                                          <strong>{{ $errors->first('date') }}</strong>
+                                      </span>
+                                  @endif 
                 </div>
               </div>
               <div class="form-row{{ $errors->has('reason') ? ' has-error' : '' }}">
                 <div class="col-lg-9">
                   <input type="text" name="reason" placeholder="Reason" class="form-control my-3 p-3" required autofocus>
+                  @if ($errors->has('reason'))
+                                      <span class="help-block">
+                                          <strong>{{ $errors->first('reason') }}</strong>
+                                      </span>
+                                  @endif 
                 </div>
               </div>
 

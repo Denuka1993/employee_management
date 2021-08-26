@@ -3,8 +3,12 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 
+
 class ViewEmployeeController extends Controller
 {
+    
+
+
     public function index(){
         
         $User = User::all();
@@ -15,6 +19,7 @@ class ViewEmployeeController extends Controller
 
     public function edit($Employee_ID){
         
+        
         $User = User::find($Employee_ID);
         return view('editEmployee',compact('User'));
        
@@ -23,6 +28,22 @@ class ViewEmployeeController extends Controller
     public function update(Request $request, $Employee_ID){
         
         $User = User::find($Employee_ID);
+
+        $this->Validate($request,[
+            
+            'First_Name' => 'required|string|max:255',
+            'Last_Name' => 'required|string|max:255',
+            'Gender' => 'required|string|max:255',
+            'Designation' => 'required|string|max:255',
+            'Contact_Number' => 'required|string|min:10|max:10',
+            'email' => 'required|string|email|max:255',
+            
+
+
+            
+        ]);
+
+       
         
         
         $User->FirstName = $request->input('First_Name');
@@ -30,19 +51,19 @@ class ViewEmployeeController extends Controller
         $User->Gender = $request->input('Gender');
         $User->Designation = $request->input('Designation');
         $User->ContactNumber = $request->input('Contact_Number');
-        $User->Email = $request->input('email');
+        $User->email = $request->input('email');
         
          $User->update();
-         return redirect('ViewEmployee');   
+         return redirect('ViewEmployee')->with('status','Employee Successfully Edited');  
+         
        
     }
-
     public function delete($Employee_ID){
        
         $User = User::find($Employee_ID);
         if ($User != null) {
             $User->delete();
-            return redirect()->back();
+            return redirect()->back()->with('status','Employee Successfully Deleted');  ;
         }
         
 

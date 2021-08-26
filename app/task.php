@@ -10,6 +10,6 @@ class task extends Model
     protected $primaryKey = 'TaskID';
     protected $fillable = [
         
-        'TaskID','TaskName', 'Description', 'AssignTo', 'Image', 'Status'
+        'TaskName', 'Description', 'AssignTo', 'Image', 'Status'
    ];
 }
